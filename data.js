@@ -84,3 +84,44 @@ var movies = [
     rate: 7.9,
   },
 ];
+
+// Let's print the movies with a rate of at least 8.0 and print the "title" and "rate" in the console. //
+
+movies.forEach(movie => {
+  if (movie.rate >= 8.0) {
+    console.log(movie.title + ': ' + movie.rate);
+  };
+})
+
+// Add the movies with a rate greater or equal than 8.0 in an array called "bestMovies" and print this array to the console. 
+
+const bestMovies = []
+
+movies.forEach(movie => {
+  if (movie.rate >= 8.0) {
+    bestMovies.push(movie);
+  }
+});
+console.log(bestMovies);
+//
+const bestMovies = movies.filter(movie => movie.rate >= 8.0);
+console.log(bestMovies);
+
+// Print to the console the movies that are from Ridley Scott. // 
+
+movies.forEach(movie => {
+  if (movie.director === 'Ridley Scott') {
+    console.log('Movies that are from Ridley Scott: ' + movie.title);
+  };
+})
+
+// Based on the "duration" property (which is in minutes), can you print the shortest movie to the console?
+
+let sortedMovies = movies.sort((a,b) => parseInt(a.duration) - parseInt(b.duration));
+let shortestMovie = sortedMovies[0];
+console.log(shortestMovie);
+
+// Sort the movies in descending order (from newest to oldest) by using the year. 
+
+let sortedMovies = movies.sort((a,b) => b.year - a.year);
+console.log(sortedMovies);
