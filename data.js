@@ -95,7 +95,7 @@ movies.forEach(movie => {
 
 // Add the movies with a rate greater or equal than 8.0 in an array called "bestMovies" and print this array to the console. 
 
-const bestMovies = []
+let bestMovies = []
 
 movies.forEach(movie => {
   if (movie.rate >= 8.0) {
@@ -103,9 +103,10 @@ movies.forEach(movie => {
   }
 });
 console.log(bestMovies);
-//
-const bestMovies = movies.filter(movie => movie.rate >= 8.0);
+/*
+let bestMovies = movies.filter(movie => movie.rate >= 8.0);
 console.log(bestMovies);
+*/
 
 // Print to the console the movies that are from Ridley Scott. // 
 
@@ -123,5 +124,24 @@ console.log(shortestMovie);
 
 // Sort the movies in descending order (from newest to oldest) by using the year. 
 
-let sortedMovies = movies.sort((a,b) => b.year - a.year);
-console.log(sortedMovies);
+let DescendingOrder = movies.sort((a,b) => b.year - a.year);
+console.log(DescendingOrder);
+
+//  => Bonus (not mandatory to complete the challenge): **_if two movies have the same release year, 
+// order them in alphabetical order by their title_
+
+let AlphabeticalsortedMovies = movies.sort(function(a, b) {
+  if (b.year === a.year) {
+    if (b.title > a.title) {
+      return -1;
+    } else  if (a.title > b.title) {
+      return 1;
+    } else {
+      return 0;
+    }
+  } else {
+    return b.year - a.year;
+  }
+});
+
+console.log(AlphabeticalsortedMovies);
